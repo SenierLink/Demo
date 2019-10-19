@@ -58,7 +58,11 @@ function doDom(data){
  */
 function show_data() {
     fetch_data()
+
+
     // var data = fetch_data()
-    // console.log(data) :undifinde
+    // console.log(data) :undefined
     // 鬼知道xhr里面的return怎么返回的。反正在xhr的里面写handleonsuccess(本次用的doDom)就不会有问题。估计是console.log(data)的时候，还没return。鬼知道原因，差半天没查到。
+    // 奥，我懂了，因为在这里的return是onreadystatuschange()的返回值，而data接收的是fetch_data的返回值。
+
 }
