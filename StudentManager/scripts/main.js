@@ -20,13 +20,8 @@ function fetch_data() {
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4) {
             if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-                console.log(xhr.responseText);
                 doDom(JSON.parse(xhr.responseText))
-                return JSON.parse(xhr.responseText)
-                // console.log(xhr.responseType)
-                // for(let i = 0; i<xhr.responseText.length; i++){
-                //     xhr.responseText[i] = JSON.parse(xhr.responseText[i])
-                // }
+                // return JSON.parse(xhr.responseText)
 
             } else {
                 alert("Request was unsuccessful:" + xhr.status);
@@ -40,16 +35,16 @@ function fetch_data() {
 
 
 function doDom(data){
-    console.log(data)
     for(let i = 0; i<data.length; i++){
         var temp = data[i]
         
-        var div = document.createElement("div")
-        var p = document.createElement("p")
-        p.innerText = temp.id + temp.name + temp.birthday + temp.sex
-        div.appendChild(p)
-
-        document.body.appendChild(div)
+        var template = $("#row_header").clone()
+        // console.log(template.children())
+        template.children()[0].innerText = temp.name
+        template.children()[1].innerText = temp.birthday
+        template.children()[2].innerText = temp.sex
+        // console.log(template.children())
+        $("div.container").append(template)
     }
 }
 

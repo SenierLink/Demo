@@ -1,0 +1,17 @@
+#container{
+    display: flex;
+    column-count: 1;
+    justify-content: space-between;
+}
+
+/* #controller{
+    width: 80%;
+} */
+
+#content{
+    width: 100%;
+}
+
+.myCenter{
+    text-align: center;
+}
