@@ -3,7 +3,7 @@ window.addEventListener("load", show_data)
 
 /**
  * 以XHR发送请求，获得服务器数据
- * @returns {Array} 把每行数据作为一个元素，数据{object}，具有属性id，name，birthday，sex
+ * @returns {[{id,name,birthday,sex}]} 把每行数据作为一个元素，数据{object}，具有属性id，name，birthday，sex
  */
 function fetch_data() {
     // 同步
@@ -33,7 +33,10 @@ function fetch_data() {
     xhr.send()
 }
 
-
+/**
+ * 操作dom显示数据，使用了jquery，想了想，xml这些还是用js，dom这块用下jquery好了。
+ * @param {[{id,name,birthday,sex}]} data 
+ */
 function doDom(data){
     for(let i = 0; i<data.length; i++){
         var temp = data[i]
